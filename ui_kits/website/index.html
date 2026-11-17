@@ -1,0 +1,26 @@
+<!-- @dsCard group="Website" viewport="1280x860" name="LAPBEE website" subtitle="Home, Team, History, Posts, Booking — click-through" -->
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LAPBEE — Trung tâm sửa chữa máy tính</title>
+<script>(function(){try{var t=localStorage.getItem("lb-theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="site.css">
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><script src="data.js"></script><script src="motion.js" defer></script></head><body><div id="root"></div>
+<script type="text/babel" src="Shell.jsx"></script><script type="text/babel" src="Process.jsx"></script><script type="text/babel" src="Home.jsx"></script><script type="text/babel" src="About.jsx"></script><script type="text/babel" src="Journey.jsx"></script><script type="text/babel" src="Posts.jsx"></script><script type="text/babel" src="Booking.jsx"></script>
+<script type="text/babel">
+const { Toast } = window.LAPBEEDesignSystem_7efb49;
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+function App(){
+  const init = (localStorage.getItem("lb-route")||"home|").split("|");
+  const [r,setR] = React.useState({page:init[0],id:+init[1]||null}); const [t,setT] = React.useState(null);
+  const go = (page,id=null) => { window.lbScrollTo ? window.lbScrollTo(0,{immediate:true}) : window.scrollTo(0,0); setR({page,id,n:Date.now()}); localStorage.setItem("lb-route",page+"|"+(id||"")); };
+  React.useLayoutEffect(() => { window.scrollTo(0,0); window.lbScrollTo && window.lbScrollTo(0,{immediate:true}); requestAnimationFrame(()=>{ window.scrollTo(0,0); window.lbScrollTo && window.lbScrollTo(0,{immediate:true}); }); const t = setTimeout(()=>{ if (scrollY > 0) { window.lbScrollTo ? window.lbScrollTo(0,{immediate:true}) : window.scrollTo(0,0); } }, 120); return () => clearTimeout(t); }, [r.page, r.id, r.n]);
+  const toast = (m) => { setT(m); setTimeout(()=>setT(null),2400); };
+  const P = {home:Home,team:Team,history:History,posts:Posts,post:Post,book:Booking}[r.page]||Home;
+  const navPage = r.page==="post"?"posts":r.page;
+  return <><div className="lb-progress" aria-hidden="true"></div><Header page={navPage} go={go}/><P go={go} id={r.id} toast={toast}/><Footer go={go}/>
+    {t && <div style={{position:"fixed",bottom:20,left:"50%",transform:"translateX(-50%)",zIndex:80,width:"calc(100% - 40px)",maxWidth:380}}><Toast title={t}/></div>}</>;
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script></body></html>

@@ -1,0 +1,21 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Core" subtitle="Button, IconButton, Badge, Tag, Icon, Wordmark" -->
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:24px}.r{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.k{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-3);width:80px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const NS = window.LAPBEEDesignSystem_7efb49;
+const { Button, IconButton, Badge, Tag, Icon, Wordmark } = NS;
+function App(){ const [t,setT]=React.useState("Tất cả"); return <div style={{display:"grid",gap:16}}>
+<div className="r"><span className="k">Button</span><Button iconRight="arrow-right">Đặt lịch sửa</Button><Button variant="secondary">Xem dịch vụ</Button><Button variant="outline" iconLeft="phone">Gọi ngay</Button><Button variant="ghost">Huỷ</Button></div>
+<div className="r"><span className="k">Size</span><Button size="sm">Small</Button><Button size="md">Medium</Button><Button size="lg">Large</Button><Button disabled>Disabled</Button></div>
+<div className="r" style={{background:"var(--ink-950)",padding:12,borderRadius:8}}><span className="k">Inverse</span><Button>Primary</Button><Button variant="inverse" iconLeft="map-pin">Chỉ đường</Button><IconButton icon="arrow-up-right" label="Mở" variant="inverse"/></div>
+<div className="r"><span className="k">IconBtn</span><IconButton icon="menu" label="Menu"/><IconButton icon="search" label="Tìm" variant="ghost"/><IconButton icon="phone" label="Gọi" variant="primary"/><IconButton icon="share-2" label="Chia sẻ" variant="secondary" size="sm"/></div>
+<div className="r"><span className="k">Badge</span><Badge tone="brand">Mới</Badge><Badge tone="ink">Doanh nghiệp</Badge><Badge>Mẹo hay</Badge><Badge tone="success" dot>Hoàn tất</Badge><Badge tone="danger" dot>Lỗi</Badge><Badge tone="info">Thông báo</Badge></div>
+<div className="r"><span className="k">Tag</span>{[["Tất cả",24],["Mẹo hay",8],["Tin tức",6],["Khuyến mãi",3]].map(([l,c])=><Tag key={l} count={c} selected={t===l} onClick={()=>setT(l)}>{l}</Tag>)}</div>
+<div className="r"><span className="k">Brand</span><Wordmark size={22}/><Wordmark size={18} tagline/><Icon name="laptop" size={22}/><Icon name="wrench" size={22}/></div>
+</div>; }
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script></body></html>

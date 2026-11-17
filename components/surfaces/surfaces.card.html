@@ -1,0 +1,22 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Surfaces" subtitle="Card, Dialog, Toast, Tooltip" -->
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:24px}.r{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.k{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-3);width:80px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const NS = window.LAPBEEDesignSystem_7efb49;
+const { Card, Dialog, Toast, Tooltip, Button, IconButton, Icon } = NS;
+function App(){ return <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
+<div style={{display:"grid",gap:12}}>
+<Card interactive padding={20}><Icon name="monitor" size={22}/><div style={{fontWeight:600,marginTop:12}}>Thay màn hình</div><div style={{fontSize:14,color:"var(--fg-2)"}}>Card · outline, interactive</div></Card>
+<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}><Card variant="ink" padding={16}><div style={{fontWeight:600}}>Ink</div></Card><Card variant="brand" padding={16}><div style={{fontWeight:600}}>Brand</div></Card></div>
+<div className="r" style={{paddingTop:30}}><Tooltip text="Chia sẻ bài viết" open><IconButton icon="share-2" label="Chia sẻ"/></Tooltip></div>
+</div>
+<div style={{display:"grid",gap:12,alignContent:"start"}}>
+<Dialog inline title="Đặt lịch thành công" onClose={()=>{}} footer={<Button size="sm">Đã hiểu</Button>}>Kỹ thuật viên sẽ gọi lại trong 15 phút để xác nhận.</Dialog>
+<Toast title="Đã gửi yêu cầu" onClose={()=>{}}>Mã phiếu: LB-0428</Toast>
+</div></div>; }
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script></body></html>
