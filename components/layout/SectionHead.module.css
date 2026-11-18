@@ -1,0 +1,23 @@
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: start;
+  border-top: 1px solid var(--ink-950);
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+.title {
+  font-size: var(--type-h2);
+}
+.intro {
+  color: var(--fg-2);
+  margin-top: 12px;
+  max-width: 560px;
+}
+@media (max-width: 820px) {
+  .head {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

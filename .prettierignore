@@ -1,0 +1,6 @@
+.next
+node_modules
+design-system
+package-lock.json
+release.zip
+docs/PLAN.md

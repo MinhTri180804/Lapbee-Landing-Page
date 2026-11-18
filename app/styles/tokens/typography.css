@@ -1,0 +1,44 @@
+/* Port từ design-system/tokens/typography.css — giữ nguyên giá trị. */
+:root {
+  /* Font tự host qua next/font (app/fonts.ts) — biến --font-archivo/--font-be-vietnam/--font-jetbrains do next/font gán trên <html>. */
+  --font-display: var(--font-archivo), var(--font-be-vietnam), system-ui, sans-serif;
+  --font-body: var(--font-be-vietnam), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --wdth-display: 112;
+  /* Size scale (px) */
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --fs-32: 32px;
+  --fs-40: 40px;
+  --fs-56: 56px;
+  --fs-72: 72px;
+  --fs-96: 96px;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --lh-tight: 1.02;
+  --lh-snug: 1.18;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
+  --ls-display: -0.025em;
+  --ls-tight: -0.01em;
+  --ls-mono: 0.04em;
+  --ls-caps: 0.12em;
+  /* Semantic roles (fluid) */
+  --type-display: clamp(44px, 7.2vw, 96px);
+  --type-h1: clamp(36px, 5vw, 64px);
+  --type-h2: clamp(28px, 3.4vw, 40px);
+  --type-h3: clamp(20px, 2vw, 24px);
+  --type-lead: clamp(17px, 1.5vw, 20px);
+  --type-body: 16px;
+  --type-small: 14px;
+  --type-caption: 13px;
+  --type-label: 12px;
+}

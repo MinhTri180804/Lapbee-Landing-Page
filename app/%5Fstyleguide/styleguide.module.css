@@ -1,0 +1,164 @@
+.block {
+  padding: 48px 0;
+  border-top: 1px solid var(--border-1);
+}
+.band {
+  padding: 48px 0;
+  background: var(--band-bg);
+  color: var(--band-fg);
+}
+.blockTitle {
+  font-size: var(--type-h3);
+  margin-bottom: 24px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.muted {
+  color: var(--fg-2);
+  font-size: 15px;
+}
+.spaced {
+  margin-top: 24px;
+}
+
+.swatchGroup {
+  margin-bottom: 24px;
+}
+.swatches {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  font-size: 12px;
+}
+.swatches li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.swatch {
+  height: 56px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-1);
+}
+
+.typeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.typeList li {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border-1);
+  padding-bottom: 12px;
+}
+.type-display {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' var(--wdth-display);
+  font-weight: 600;
+  letter-spacing: var(--ls-display);
+  line-height: 1.05;
+}
+.type-body {
+  font-family: var(--font-body);
+}
+.type-mono {
+  font-family: var(--font-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+}
+
+.spaceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.spaceBar {
+  display: block;
+  height: 16px;
+  background: var(--brand);
+}
+.radiusItem,
+.shadowItem {
+  width: 96px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  background: var(--surface-card);
+  border: 1px solid var(--border-2);
+}
+.shadowItem {
+  border-color: transparent;
+  border-radius: var(--radius-md);
+}
+
+.cardBody {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardTitle {
+  font-size: 20px;
+  line-height: 1.2;
+  margin-top: 12px;
+}
+.brandCard {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.brandCard .cardTitle {
+  font-size: var(--type-h2);
+  max-width: 620px;
+  margin: 0;
+}
+
+.icons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  font-size: 12px;
+}
+.icons li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+  max-width: 720px;
+}
+
+@media (max-width: 560px) {
+  .typeList li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

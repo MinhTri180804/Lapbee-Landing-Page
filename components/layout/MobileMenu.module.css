@@ -1,0 +1,219 @@
+/* Nút burger: 2 vạch → dấu X */
+.burger {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-2);
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+.burger > span {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--ink-950);
+  border-radius: 2px;
+  transition:
+    transform 0.45s var(--ease-expo),
+    top 0.45s var(--ease-expo);
+}
+.burger > span:first-child {
+  top: 16px;
+}
+.burger > span:last-child {
+  top: 25px;
+}
+.burgerOpen {
+  background: var(--ink-950);
+  border-color: var(--ink-950);
+}
+.burgerOpen > span {
+  background: var(--accent-on-strong);
+  top: 20.5px !important;
+}
+.burgerOpen > span:first-child {
+  transform: rotate(45deg);
+}
+.burgerOpen > span:last-child {
+  transform: rotate(-45deg);
+}
+
+/* Lớp phủ + bảng menu */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+}
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out);
+}
+.show .scrim {
+  opacity: 1;
+}
+.sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 68px;
+  max-height: calc(100dvh - 68px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--paper);
+  border-top: 1px solid var(--border-1);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow-3);
+  padding: 8px var(--gutter) calc(20px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.5s var(--ease-expo);
+}
+.show .sheet {
+  clip-path: inset(0 0 0 0);
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.navList > li,
+.foot {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.45s var(--ease-expo),
+    transform 0.55s var(--ease-expo);
+  transition-delay: calc(80ms + var(--i) * 45ms);
+}
+.show .navList > li,
+.show .foot {
+  opacity: 1;
+  transform: none;
+}
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-1);
+  text-decoration: none;
+  color: var(--fg-1);
+  -webkit-tap-highlight-color: transparent;
+}
+.link:hover {
+  text-decoration: none;
+  color: var(--fg-1);
+}
+.linkText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.linkTitle {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 600;
+  font-size: clamp(24px, 6.4vw, 32px);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+.linkSub {
+  font-size: 13px;
+  color: var(--fg-2);
+}
+.linkGo {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-2);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.3s var(--ease-expo);
+}
+.link:active .linkGo {
+  transform: translateX(4px);
+}
+.linkActive .linkTitle {
+  background: linear-gradient(var(--brand), var(--brand)) 0 88% / 100% 0.32em no-repeat;
+  align-self: flex-start;
+}
+.linkActive .linkSub {
+  color: var(--fg-1);
+  font-weight: 600;
+}
+.linkActive .linkGo {
+  background: var(--ink-950);
+  border-color: var(--ink-950);
+  color: var(--accent-on-strong);
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 14px;
+  color: var(--fg-2);
+  text-decoration: none;
+}
+.address > span {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+/* Tablet: menu trượt từ phải, cao hết màn hình */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .sheet {
+    left: auto;
+    width: min(440px, 100%);
+    border-radius: 0 0 0 var(--radius-lg);
+    bottom: 0;
+    max-height: none;
+    clip-path: inset(0 0 0 100%);
+  }
+}

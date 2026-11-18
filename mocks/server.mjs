@@ -1,0 +1,115 @@
+#!/usr/bin/env node
+/**
+ * Mock backend cho dev/test — Node thuần, không dependency.
+ *
+ *   node mocks/server.mjs                 # cổng 4010 (MOCK_PORT để đổi; 0 = cổng ngẫu nhiên)
+ *
+ * Endpoint (hợp đồng: docs/CONTENT_LAYER.md, mục 7 của brief):
+ *   GET  /health                → { ok: true }
+ *   GET  /pages/:slug           → mocks/data/pages/<slug>.json, 404 nếu không có
+ *   GET  /site                  → mocks/data/site.json, 404 nếu không có
+ *   (endpoint blog /posts… thêm ở GĐ6)
+ *
+ * Giả lập sự cố (dùng để kiểm tra "API lỗi → giữ cache cũ"):
+ *   MOCK_FAIL=500|timeout|bad-schema|down   khi khởi động, hoặc lúc đang chạy:
+ *   curl -X POST localhost:4010/__mock/fail -d '{"mode":"500"}'   (mode null = bình thường)
+ *   MOCK_DELAY_MS=300                       thêm độ trễ cho mọi response
+ *
+ * Dữ liệu đọc lại từ đĩa mỗi request → sửa file JSON là thấy ngay (để thử revalidate).
+ */
+import { readFile } from 'node:fs/promises';
+import { createServer } from 'node:http';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const DATA_DIR = join(dirname(fileURLToPath(import.meta.url)), 'data');
+const PORT = Number(process.env.MOCK_PORT ?? 4010);
+const DELAY_MS = Number(process.env.MOCK_DELAY_MS ?? 0);
+const FAIL_MODES = new Set(['500', 'timeout', 'bad-schema', 'down']);
+
+let failMode = FAIL_MODES.has(process.env.MOCK_FAIL ?? '') ? process.env.MOCK_FAIL : null;
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+function send(res, status, body) {
+  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+  res.end(JSON.stringify(body));
+}
+
+async function readJson(relativePath) {
+  try {
+    return JSON.parse(await readFile(join(DATA_DIR, relativePath), 'utf8'));
+  } catch (error) {
+    if (error.code === 'ENOENT') return undefined;
+    throw error;
+  }
+}
+
+async function readBody(req) {
+  const chunks = [];
+  for await (const chunk of req) chunks.push(chunk);
+  return Buffer.concat(chunks).toString('utf8');
+}
+
+const SLUG = /^[a-z0-9-]+$/;
+
+async function route(req, res, url) {
+  if (req.method === 'POST' && url.pathname === '/__mock/fail') {
+    const { mode = null } = JSON.parse((await readBody(req)) || '{}');
+    if (mode !== null && !FAIL_MODES.has(mode))
+      return send(res, 400, { error: 'mode không hợp lệ' });
+    failMode = mode;
+    return send(res, 200, { failMode });
+  }
+  if (req.method !== 'GET') return send(res, 405, { error: 'Method not allowed' });
+  if (url.pathname === '/health') return send(res, 200, { ok: true, failMode });
+
+  if (failMode === 'down') {
+    req.socket.destroy(); // giả lập backend chết: đóng kết nối không trả lời
+    return;
+  }
+  if (failMode === 'timeout') return; // không bao giờ trả lời
+  if (failMode === '500') return send(res, 500, { error: 'Mock lỗi 500' });
+  if (failMode === 'bad-schema') return send(res, 200, { sections: { hero: { title: 42 } } });
+
+  const page = url.pathname.match(/^\/pages\/([^/]+)$/);
+  if (page) {
+    const slug = decodeURIComponent(page[1]);
+    const data = SLUG.test(slug) ? await readJson(`pages/${slug}.json`) : undefined;
+    return data ? send(res, 200, data) : send(res, 404, { error: 'Not found' });
+  }
+  if (url.pathname === '/site') {
+    const data = await readJson('site.json');
+    return data ? send(res, 200, data) : send(res, 404, { error: 'Not found' });
+  }
+  return send(res, 404, { error: 'Not found' });
+}
+
+const server = createServer(async (req, res) => {
+  const url = new URL(req.url ?? '/', 'http://localhost');
+  const started = Date.now();
+  res.on('finish', () => {
+    console.log(
+      `[mock] ${req.method} ${url.pathname}${url.search} → ${res.statusCode} ${Date.now() - started}ms`,
+    );
+  });
+  try {
+    if (DELAY_MS > 0) await sleep(DELAY_MS);
+    await route(req, res, url);
+  } catch (error) {
+    console.error('[mock] lỗi:', error);
+    if (!res.headersSent) send(res, 500, { error: 'Mock server error' });
+  }
+});
+
+server.listen(PORT, '127.0.0.1', () => {
+  const { port } = server.address();
+  // Dòng này được test đọc để biết cổng khi MOCK_PORT=0.
+  console.log(
+    `[mock] listening on http://127.0.0.1:${port}${failMode ? ` (fail=${failMode})` : ''}`,
+  );
+});
+
+for (const signal of ['SIGINT', 'SIGTERM']) {
+  process.on(signal, () => server.close(() => process.exit(0)));
+}

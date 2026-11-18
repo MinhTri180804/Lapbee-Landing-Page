@@ -1,0 +1,21 @@
+{
+  "slug": "home",
+  "updatedAt": "2026-11-18T08:00:00.000Z",
+  "seo": {
+    "title": "LAPBEE — Trung tâm sửa chữa máy tính từ 2012",
+    "description": "Sửa laptop, MacBook, PC, cứu dữ liệu và bảo trì IT cho doanh nghiệp. Kiểm tra, báo giá miễn phí; bảo hành bằng văn bản."
+  },
+  "sections": {
+    "hero": {
+      "title": "Máy hỏng,\nđã có LAPBEE.",
+      "highlight": "LAPBEE",
+      "lead": "[MOCK API] Nội dung hero này đến từ GET /pages/home của mock server — sửa file mocks/data/pages/home.json để thử revalidate.",
+      "ctas": [
+        { "label": "Đặt lịch sửa chữa", "href": "/dat-lich", "iconRight": "arrow-right" },
+        { "label": "Xem dịch vụ", "href": "#dich-vu", "variant": "outline" }
+      ],
+      "photo": { "image": null, "label": "ẢNH XƯỞNG SỬA CHỮA" },
+      "chip": { "value": "14+", "text": "năm kinh nghiệm\ntừ LAPPY 2012" }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+/* Field: nhãn + ô nhập + gợi ý/lỗi */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-body);
+}
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-1);
+}
+.hint {
+  font-size: 13px;
+  color: var(--fg-2);
+}
+.error {
+  font-size: 13px;
+  color: var(--danger);
+}
+
+/* Khung ô nhập: focus → viền ink + vòng bee-300 3px */
+.box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--control-h-md);
+  padding: 0 14px;
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  transition:
+    box-shadow var(--dur-fast),
+    border-color var(--dur-fast);
+}
+.box:focus-within {
+  border-color: var(--ink-950);
+  box-shadow: var(--shadow-focus);
+}
+.boxMultiline {
+  align-items: flex-start;
+  padding: 12px 14px;
+}
+.boxInvalid,
+.boxInvalid:focus-within {
+  border-color: var(--danger);
+}
+.boxDisabled {
+  background: var(--surface-sunken);
+  opacity: 0.6;
+}
+.boxIcon {
+  color: var(--fg-3);
+}
+.boxMultiline .boxIcon {
+  margin-top: 2px;
+}
+.control {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 16px; /* ≥16px: iOS không tự zoom */
+  color: var(--fg-1);
+  padding: 0;
+}
+input.control {
+  height: 42px;
+}
+textarea.control {
+  resize: vertical;
+  line-height: var(--lh-normal);
+}
+.control::placeholder {
+  color: var(--fg-3);
+}
+
+/* Select */
+.selectWrap {
+  position: relative;
+  display: flex;
+}
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: var(--control-h-md);
+  padding: 0 40px 0 14px;
+  font-size: 16px;
+  color: var(--fg-1);
+  background: var(--surface-card);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-sm);
+  outline: 0;
+  cursor: pointer;
+}
+.select:focus {
+  border-color: var(--ink-950);
+  box-shadow: var(--shadow-focus);
+}
+.select[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+.select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.selectIcon {
+  position: absolute;
+  right: 12px;
+  top: 13px;
+  pointer-events: none;
+  color: var(--fg-2);
+}
+
+/* Checkbox / Radio: input thật (ẩn hình) + ô vẽ bằng CSS → bàn phím, form, không-JS đều chạy */
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--fg-1);
+  position: relative;
+}
+.choiceInput {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+}
+.choiceInput:disabled + .checkbox,
+.choiceInput:disabled + .radio {
+  opacity: 0.5;
+}
+.checkbox,
+.radio {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--ink-400);
+  background: var(--surface-card);
+  transition: background var(--dur-fast);
+}
+.checkbox {
+  border-radius: var(--radius-xs);
+  color: var(--accent-on-strong);
+}
+.checkbox > svg {
+  opacity: 0;
+}
+.choiceInput:checked + .checkbox {
+  background: var(--ink-950);
+  border-color: var(--ink-950);
+}
+.choiceInput:checked + .checkbox > svg {
+  opacity: 1;
+}
+.radio {
+  border-radius: 999px;
+}
+.radio::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--ink-950);
+  box-shadow: 0 0 0 2px var(--accent-on-strong) inset;
+  opacity: 0;
+}
+.choiceInput:checked + .radio {
+  border-color: var(--ink-950);
+}
+.choiceInput:checked + .radio::after {
+  opacity: 1;
+}
+.choiceInput:focus-visible + .checkbox,
+.choiceInput:focus-visible + .radio {
+  outline: 2px solid var(--ink-950);
+  outline-offset: 2px;
+}
+
+.radioGroup {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.radioOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.radioRow {
+  flex-direction: row;
+  gap: 20px;
+}

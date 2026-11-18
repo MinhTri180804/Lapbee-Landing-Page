@@ -1,0 +1,41 @@
+.button {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--border-2);
+  background: transparent;
+  color: var(--fg-1);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.button:hover {
+  background: var(--ink-100);
+}
+.button > span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transition:
+    transform 0.5s var(--ease-expo),
+    opacity 0.3s;
+}
+.sun {
+  transform: translateY(120%) rotate(-90deg);
+  opacity: 0;
+}
+:global([data-theme='dark']) .sun {
+  transform: none;
+  opacity: 1;
+}
+:global([data-theme='dark']) .moon {
+  transform: translateY(-120%) rotate(90deg);
+  opacity: 0;
+}

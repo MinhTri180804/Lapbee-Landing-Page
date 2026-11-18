@@ -1,0 +1,18 @@
+/* Port từ design-system/tokens/effects.css — giữ nguyên giá trị. */
+:root {
+  --hairline: 1px solid var(--border-1);
+  --shadow-0: none;
+  --shadow-1: 0 1px 0 rgba(18, 18, 16, 0.04), 0 1px 2px rgba(18, 18, 16, 0.06);
+  --shadow-2: 0 2px 4px rgba(18, 18, 16, 0.04), 0 8px 24px -8px rgba(18, 18, 16, 0.12);
+  --shadow-3: 0 4px 8px rgba(18, 18, 16, 0.05), 0 24px 56px -16px rgba(18, 18, 16, 0.22);
+  --shadow-focus: 0 0 0 3px var(--bee-300);
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-reveal: 900ms;
+  --ease-in-out: cubic-bezier(0.6, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 420ms;
+  --blur-nav: 14px;
+  --scrim: rgba(18, 18, 16, 0.48);
+}

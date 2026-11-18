@@ -1,0 +1,45 @@
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--size) * 0.4);
+  color: var(--fg-1);
+}
+.inverse {
+  color: var(--band-fg);
+}
+.mark {
+  height: calc(var(--size) * 1.6);
+  width: auto;
+  flex: none;
+}
+.text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: calc(var(--size) * 0.5);
+}
+.name {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 125;
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: var(--size);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.bee {
+  background: var(--brand);
+  color: var(--on-brand);
+  padding: 0 calc(var(--size) * 0.12);
+  margin-left: calc(var(--size) * 0.04);
+  border-radius: 2px;
+}
+.tagline {
+  font-family: var(--font-mono);
+  font-size: max(10px, calc(var(--size) * 0.42));
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+.inverse .tagline {
+  color: var(--band-fg-2);
+}

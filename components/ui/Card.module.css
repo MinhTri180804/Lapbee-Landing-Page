@@ -1,0 +1,61 @@
+.card {
+  border-radius: var(--radius-md);
+  padding: var(--card-padding, 24px);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    border-color var(--dur-base);
+}
+/* Mặc định: nền trắng, viền hairline, không đổ bóng khi nghỉ. */
+.outline {
+  background: var(--surface-card);
+  border: 1px solid var(--border-1);
+}
+.sunken {
+  background: var(--surface-sunken);
+  border: 1px solid transparent;
+}
+.ink {
+  background: var(--surface-inverse);
+  color: var(--fg-inverse-1);
+  border: 1px solid var(--surface-inverse);
+}
+/* brand: tối đa một lần mỗi trang */
+.brand {
+  background: var(--brand);
+  color: var(--on-brand);
+  border: 1px solid var(--brand);
+}
+/* Có tương tác: hover → viền ink, nhấc 2px, shadow-2. Áp cả khi link bên trong được focus. */
+.interactive {
+  position: relative;
+  cursor: pointer;
+}
+.interactive:hover,
+.interactive:focus-within {
+  border-color: var(--ink-950);
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+
+/* Link phủ cả thẻ: vùng bấm là toàn bộ thẻ, focus ring vẽ quanh thẻ. */
+.cardLink {
+  color: inherit;
+  text-decoration: none;
+}
+.cardLink:hover {
+  text-decoration: none;
+}
+.cardLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.cardLink:focus-visible {
+  outline: none;
+}
+.interactive:has(.cardLink:focus-visible) {
+  outline: 2px solid var(--ink-950);
+  outline-offset: 2px;
+}

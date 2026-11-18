@@ -1,0 +1,91 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--control-h-md);
+  padding: 0 20px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--fg-1);
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+.button:hover {
+  text-decoration: none;
+}
+.button:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(1px);
+}
+.button:disabled,
+.button[aria-disabled='true'] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sm {
+  height: var(--control-h-sm);
+  padding: 0 14px;
+  font-size: 14px;
+}
+.lg {
+  height: var(--control-h-lg);
+  padding: 0 26px;
+  font-size: 16px;
+}
+.full {
+  display: flex;
+  width: 100%;
+}
+
+/* primary = vàng bee, tối đa 1 lần mỗi view */
+.primary {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+.primary:hover {
+  background: var(--brand-hover);
+  color: var(--on-brand);
+}
+.secondary {
+  background: var(--ink-950);
+  color: var(--fg-inverse-1);
+}
+.secondary:hover {
+  background: var(--ink-800);
+  color: var(--fg-inverse-1);
+}
+.outline {
+  border-color: var(--border-strong);
+  color: var(--fg-1);
+}
+.outline:hover {
+  background: var(--ink-50);
+  color: var(--fg-1);
+}
+.ghost {
+  color: var(--fg-1);
+}
+.ghost:hover {
+  background: var(--ink-100);
+  color: var(--fg-1);
+}
+/* inverse: trên band tối */
+.inverse {
+  border-color: var(--band-border);
+  color: var(--band-fg);
+}
+.inverse:hover {
+  background: var(--band-hover);
+  color: var(--band-fg);
+}
