@@ -22,7 +22,7 @@ import { fontVariables } from './fonts';
  */
 export async function generateMetadata(): Promise<Metadata> {
   const site = await getSiteSettings();
-  const { siteUrl } = getServerEnv();
+  const { siteUrl, noindex } = getServerEnv();
   const description = site.about;
   return {
     metadataBase: new URL(siteUrl),
@@ -40,6 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [{ ...DEFAULT_OG_IMAGE, alt: site.name }],
     },
     twitter: { card: 'summary_large_image', title: site.name, description },
+    ...(noindex ? { robots: { index: false, follow: false } } : {}),
   };
 }
 

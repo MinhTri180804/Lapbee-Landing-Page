@@ -77,7 +77,7 @@ export function articleJsonLd(
     '@id': `${url}#article`,
     headline: post.title,
     description: post.seo.description || post.excerpt,
-    image: [post.seo.ogImage ?? post.cover.url],
+    image: [abs(post.seo.ogImage ?? post.cover.url, siteUrl)],
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     inLanguage: 'vi-VN',

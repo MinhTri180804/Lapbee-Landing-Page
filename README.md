@@ -35,6 +35,23 @@ npm run dev:mock             # dev server + mock backend (cổng 4010)
 | `npm run icons`                   | Sinh favicon/icon/apple-icon từ `public/brand/logo-mark.png` |
 | `npm run og-image`                | Chụp ảnh OG mặc định từ `/_styleguide/og` (cần dev server)   |
 
+## Preview trên Vercel (chưa có backend)
+
+Dùng để khách xem trước giao diện với **dữ liệu mẫu**. Không phải môi trường production (production deploy lên Vietnix — GĐ4/GĐ9).
+
+1. Import repo vào Vercel (Framework: Next.js, Build Command mặc định `npm run build`).
+2. Settings → General → Node.js Version: **24.x**.
+3. Settings → Environment Variables:
+
+   | Biến              | Giá trị | Ghi chú                                                                |
+   | ----------------- | ------- | ---------------------------------------------------------------------- |
+   | `MOCK_API_INLINE` | `true`  | Dữ liệu mẫu đóng gói trong bản build (`mocks/data`), không gọi backend |
+   | `SITE_URL`        | (trống) | Tự lấy domain của project trên Vercel; điền nếu dùng domain riêng      |
+
+4. Deploy. Bản preview tự **chặn index** (`robots.txt: Disallow: /`, `noindex` mọi trang).
+
+Lưu ý: dữ liệu mẫu cố định theo commit (sửa `mocks/data/*.json` rồi push để đổi); form đặt lịch chưa gửi đi (chưa có API).
+
 ## Cấu trúc
 
 | Thư mục                | Vai trò                                                                                                                                        |

@@ -11,6 +11,7 @@ import {
   ApiNotFoundError,
   ApiTimeoutError,
 } from './errors';
+import { inlineMockResponse } from './inline-mock';
 import { DEFAULT_REVALIDATE_SECONDS } from './tags';
 
 export type ApiGetOptions<T> = {
@@ -52,20 +53,10 @@ export async function apiGet<T>(path: string, options: ApiGetOptions<T>): Promis
       ? { headers, cache: 'no-store' }
       : { headers, cache: 'force-cache', next: { revalidate, tags: [...options.tags] } };
 
-  let response: Response;
-  try {
-    response = await withTimeout(
-      (signal) => fetch(url, { ...init, signal }),
-      env.apiTimeoutMs,
-      url,
-    );
-  } catch (error) {
-    if (error instanceof ApiTimeoutError) throw logged(error);
-    if (isAbortTimeout(error)) {
-      throw logged(new ApiTimeoutError(`Hết thời gian chờ ${env.apiTimeoutMs}ms: ${url}`, url));
-    }
-    throw logged(new ApiNetworkError(`Không kết nối được backend: ${url}`, url, { cause: error }));
-  }
+  // Preview/demo (MOCK_API_INLINE): dữ liệu mẫu trong tiến trình, không fetch → trang thành SSG thuần.
+  const response = env.mockApiInline
+    ? await inlineMockResponse(new URL(url))
+    : await fetchBackend(url, init, env.apiTimeoutMs);
 
   if (response.status === 404) {
     // Không log: 404 là tình huống bình thường (bài viết không tồn tại).
@@ -92,6 +83,19 @@ export async function apiGet<T>(path: string, options: ApiGetOptions<T>): Promis
     );
   }
   return parsed.data;
+}
+
+/** fetch tới backend kèm timeout; lỗi mạng/timeout → ApiNetworkError / ApiTimeoutError (đã log). */
+async function fetchBackend(url: string, init: RequestInit, timeoutMs: number): Promise<Response> {
+  try {
+    return await withTimeout((signal) => fetch(url, { ...init, signal }), timeoutMs, url);
+  } catch (error) {
+    if (error instanceof ApiTimeoutError) throw logged(error);
+    if (isAbortTimeout(error)) {
+      throw logged(new ApiTimeoutError(`Hết thời gian chờ ${timeoutMs}ms: ${url}`, url));
+    }
+    throw logged(new ApiNetworkError(`Không kết nối được backend: ${url}`, url, { cause: error }));
+  }
 }
 
 function buildUrl(base: string, path: string, query?: ApiGetOptions<unknown>['query']): string {

@@ -8,7 +8,9 @@ import { routes } from '@/lib/routes';
  * (nội dung trùng lặp theo từ khoá tuỳ ý). Trỏ tới sitemap theo SITE_URL.
  */
 export default function robots(): MetadataRoute.Robots {
-  const { siteUrl } = getServerEnv();
+  const { siteUrl, noindex } = getServerEnv();
+  // Bản preview/staging (SITE_NOINDEX, MOCK_API_INLINE): chặn toàn bộ.
+  if (noindex) return { rules: { userAgent: '*', disallow: '/' } };
   return {
     rules: {
       userAgent: '*',

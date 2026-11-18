@@ -3,6 +3,7 @@ import 'server-only';
 import type { Metadata } from 'next';
 
 import { getSiteSettings, type Seo } from '@/content';
+import { getServerEnv } from '@/lib/env';
 
 /**
  * Metadata của một trang từ `seo` (content layer hoặc blog API).
@@ -77,6 +78,10 @@ export async function buildMetadata({
       description: seo.description,
       images: ogImages.map((i) => i.url),
     },
-    robots: seo.noindex ? { index: false, follow: true } : { index: true, follow: true },
+    // SITE_NOINDEX / MOCK_API_INLINE (bản preview): chặn index mọi trang.
+    robots:
+      seo.noindex || getServerEnv().noindex
+        ? { index: false, follow: true }
+        : { index: true, follow: true },
   };
 }

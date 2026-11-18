@@ -13,7 +13,8 @@ const HttpUrl = z.url({ protocol: /^https?$/ });
 export const PostSlug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug không hợp lệ');
 
 export const PostCover = z.object({
-  url: HttpUrl,
+  /** URL tuyệt đối http(s); hoặc đường dẫn trong site (`/mock/…`) — chỉ dữ liệu mẫu MOCK_API_INLINE dùng. */
+  url: z.union([HttpUrl, z.string().regex(/^\/(?!\/)[^\s]*$/, 'đường dẫn ảnh không hợp lệ')]),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
   alt: z.string(),

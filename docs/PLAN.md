@@ -385,6 +385,7 @@ Giữ thứ tự gợi ý của bạn, chỉ điều chỉnh nhỏ: GĐ4 (deploy
   - lint ✓ · typecheck ✓ · format ✓ · test 51/51 ✓ · build ✓ (`npm run build:mock`, build sạch): `/sitemap.xml` ISR 1h, `/robots.txt`, icon tĩnh
   - Bản standalone (`SITE_URL=https://lapbee.example`): 10 trang có title/description/canonical (URL tiếng Việt)/OG/Twitter đúng, 1 h1, heading không nhảy cấp; JSON-LD Organization+WebSite (trang chủ), Article+BreadcrumbList (bài); sitemap 27 URL; robots đúng; URL lạ → 404 + trang 404; backend lỗi → 500 + trang lỗi, "Thử lại" hoạt động
   - Ảnh OG mặc định + icon sinh bằng script (`npm run og-image`, `npm run icons`); chưa chạy Rich Results Test (cần URL công khai)
+- [x] Ngoài plan (18.11.2026, theo yêu cầu): chế độ `MOCK_API_INLINE` để deploy preview lên Vercel cho khách xem (dữ liệu mẫu, tự noindex) — README "Preview trên Vercel"
 - [ ] GĐ8 — Revalidate endpoint + `docs/WEBHOOK.md`
 - [ ] GĐ4 — Deploy thử Vietnix + `docs/DEPLOY.md` bản đầu _(dời xuống sau GĐ8 — 18.11.2026)_
 - [ ] GĐ9 — Hoàn thiện deploy

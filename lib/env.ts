@@ -29,11 +29,15 @@ const EnvSchema = z
     API_TOKEN: optional(z.string().min(1)),
     REVALIDATE_SECRET: optional(z.string().min(32, 'REVALIDATE_SECRET cần tối thiểu 32 ký tự')),
     USE_MOCK_API: flag,
+    /** Dữ liệu mẫu đóng gói sẵn, không gọi mạng (preview/demo — lib/api/inline-mock.ts). */
+    MOCK_API_INLINE: flag,
+    /** Chặn bot index toàn site (bản preview/staging). Tự bật khi MOCK_API_INLINE. */
+    SITE_NOINDEX: flag,
     /** Timeout gọi backend (ms). Mặc định 8000; chỉ hạ thấp khi chạy test. */
     BACKEND_TIMEOUT_MS: optional(z.coerce.number().int().min(100).max(60_000)),
   })
-  .refine((env) => env.USE_MOCK_API || env.API_BASE_URL, {
-    message: 'Cần API_BASE_URL khi USE_MOCK_API không bật',
+  .refine((env) => env.USE_MOCK_API || env.MOCK_API_INLINE || env.API_BASE_URL, {
+    message: 'Cần API_BASE_URL khi USE_MOCK_API / MOCK_API_INLINE không bật',
     path: ['API_BASE_URL'],
   })
   .transform((env) => ({
@@ -41,14 +45,28 @@ const EnvSchema = z
     apiBaseUrl: (env.API_BASE_URL ?? MOCK_API_BASE_URL).replace(/\/+$/, ''),
     apiToken: env.API_TOKEN,
     revalidateSecret: env.REVALIDATE_SECRET,
-    useMockApi: env.USE_MOCK_API,
+    useMockApi: env.USE_MOCK_API || env.MOCK_API_INLINE,
+    mockApiInline: env.MOCK_API_INLINE,
+    noindex: env.SITE_NOINDEX || env.MOCK_API_INLINE,
     apiTimeoutMs: env.BACKEND_TIMEOUT_MS ?? DEFAULT_BACKEND_TIMEOUT_MS,
   }));
 
 export type ServerEnv = z.infer<typeof EnvSchema>;
 
+/**
+ * Trên Vercel: SITE_URL bỏ trống → dùng domain production của project (hoặc URL của deployment).
+ * Hai biến VERCEL_* do Vercel tự đặt. Hosting khác (cPanel) vẫn phải khai báo SITE_URL.
+ */
+function vercelSiteUrl(): string | undefined {
+  const host = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+  return host ? `https://${host}` : undefined;
+}
+
 export function getServerEnv(): ServerEnv {
-  const result = EnvSchema.safeParse(process.env);
+  const result = EnvSchema.safeParse({
+    ...process.env,
+    SITE_URL: process.env.SITE_URL || vercelSiteUrl(),
+  });
   if (!result.success) {
     throw new Error(`Biến môi trường không hợp lệ:\n${z.prettifyError(result.error)}`);
   }
