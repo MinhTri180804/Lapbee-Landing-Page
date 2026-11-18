@@ -7,7 +7,7 @@ import { CtaBannerSection } from './sections/cta-banner';
 import { HeroSection } from './sections/hero';
 import { LatestPostsSection } from './sections/latest-posts';
 import { PageHeroSection } from './sections/page-hero';
-import { PostsListingSection } from './sections/posts-listing';
+import { PostArticleSection, PostsListingSection } from './sections/posts-listing';
 import { PrinciplesSection } from './sections/principles';
 import { ProcessSection } from './sections/process';
 import { ServicesSection } from './sections/services';
@@ -56,6 +56,7 @@ export const PageSchemas = {
   posts: definePage({
     hero: PageHeroSection,
     listing: PostsListingSection,
+    article: PostArticleSection,
   }),
   booking: definePage({
     hero: PageHeroSection,

@@ -1,0 +1,336 @@
+/* Thanh năm dính dưới header */
+.railWrap {
+  position: sticky;
+  top: 68px;
+  z-index: 30;
+  background: color-mix(in oklab, var(--paper) 90%, transparent);
+  backdrop-filter: blur(var(--blur-nav));
+  -webkit-backdrop-filter: blur(var(--blur-nav));
+  border-top: 1px solid var(--ink-950);
+  border-bottom: 1px solid var(--border-1);
+  transition: top 0.5s var(--ease-expo);
+}
+:global(html.lb-hdr-hidden) .railWrap {
+  top: 3px;
+}
+.railInner {
+  position: relative;
+}
+.rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(120px, 1fr);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+.tick {
+  padding: 14px 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--fg-3);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.tick:hover {
+  color: var(--fg-1);
+  text-decoration: none;
+}
+.tickYear {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.tickTitle {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tickDone {
+  color: var(--fg-2);
+}
+.tickOn {
+  color: var(--fg-1);
+}
+.tickOn .tickYear {
+  background: var(--brand);
+  color: var(--on-brand);
+  align-self: flex-start;
+  padding: 0 6px;
+  margin-left: -6px;
+  border-radius: 2px;
+}
+.railBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+}
+.railBar > span {
+  display: block;
+  height: 100%;
+  background: var(--ink-950);
+  transform-origin: 0 50%;
+  transition: transform 0.15s linear;
+}
+
+/* Chương */
+.chapter {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(24px, 5vw, 80px);
+  padding: clamp(56px, 9vw, 120px) 0;
+  border-bottom: 1px solid var(--border-1);
+  scroll-margin-top: 140px;
+}
+.flip {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+}
+.flip .yearCol {
+  order: 2;
+}
+.yearCol {
+  position: relative;
+  min-width: 0;
+  container-type: inline-size;
+}
+.year {
+  position: sticky;
+  top: 180px;
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 125;
+  font-weight: 700;
+  font-size: clamp(64px, 26cqi, 232px);
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+  color: var(--ink-950);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.08em;
+  text-decoration-skip-ink: none;
+  transition:
+    color 0.6s var(--ease-expo),
+    -webkit-text-stroke-color 0.6s,
+    text-decoration-color 0.6s var(--ease-expo);
+}
+/* Có JS: năm chưa xem chỉ là viền chữ; năm đang xem tô đậm + gạch chân vàng. */
+:global(html.js) .year {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink-300);
+}
+:global(html.js) .chapter[data-active] .year {
+  color: var(--ink-950);
+  -webkit-text-stroke-color: var(--ink-950);
+  text-decoration-color: var(--brand);
+}
+.flip .year {
+  text-align: right;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+.labels {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.title {
+  font-size: var(--type-h2);
+  margin-top: 14px;
+  letter-spacing: -0.025em;
+}
+.textOnly .body {
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+.textOnly .title {
+  font-size: var(--type-h1);
+  letter-spacing: -0.03em;
+}
+.chapterBody {
+  color: var(--fg-2);
+  margin-top: 14px;
+  font-size: var(--type-lead);
+  max-width: 560px;
+}
+
+/* Lưới ảnh 2 và 3 ảnh */
+.photos {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.n2 {
+  grid-template-columns: 1.25fr 1fr;
+  align-items: end;
+}
+.n2 > li:nth-child(2) > .photo {
+  margin-bottom: -40px;
+}
+.n2 + .text {
+  margin-top: 24px;
+}
+.n3 {
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: stretch;
+}
+.n3 > li:first-child {
+  grid-row: 1 / 3;
+}
+.n3 > li:first-child > .photo {
+  aspect-ratio: auto !important;
+  height: 100%;
+}
+
+/* Thư viện cuộn ngang */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+.galleryTrack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(50% - 6px);
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.galleryTrack::-webkit-scrollbar {
+  display: none;
+}
+.galleryTrack > li {
+  scroll-snap-align: start;
+}
+.galleryControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-1);
+  padding-top: 14px;
+}
+.galleryButtons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Trích dẫn */
+.quote {
+  margin: 20px 0 0;
+  position: relative;
+  background: var(--surface-card);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 48px);
+  padding-top: clamp(56px, 6vw, 72px);
+}
+.qmark {
+  position: absolute;
+  top: -6px;
+  left: clamp(24px, 4vw, 44px);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 0.9;
+  color: var(--on-brand);
+  background: var(--brand);
+  width: 64px;
+  height: 64px;
+  padding-top: 8px;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: start center;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+.quote blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 108;
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--fg-1);
+  text-wrap: pretty;
+}
+.quote figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-1);
+  font-size: 15px;
+}
+.quoteBy {
+  font-weight: 600;
+  color: var(--fg-1);
+}
+
+@media (max-width: 820px) {
+  .rail {
+    grid-auto-columns: minmax(110px, auto);
+  }
+  .chapter,
+  .flip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 48px 0;
+  }
+  .flip .yearCol {
+    order: 0;
+  }
+  .year,
+  .flip .year {
+    position: static;
+    text-align: left;
+    font-size: clamp(64px, 22cqi, 140px);
+  }
+  .n2 > li:nth-child(2) > .photo {
+    margin-bottom: 0;
+  }
+  .n2 + .text {
+    margin-top: 0;
+  }
+  .n3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .n3 > li:first-child {
+    grid-row: auto;
+    grid-column: 1 / -1;
+  }
+  .n3 > li:first-child > .photo {
+    aspect-ratio: 16 / 10 !important;
+    height: auto;
+  }
+  .galleryTrack {
+    grid-auto-columns: 78%;
+  }
+  .textOnly .body {
+    flex-direction: column;
+  }
+}

@@ -11,6 +11,7 @@ import { cx } from '@/components/ui/cx';
 
 import styles from './MobileMenu.module.css';
 import { isActivePath } from './NavLinks';
+import { OpenStatus } from './OpenStatus';
 import { telHref, type ContactInfo, type CtaLink, type NavItem } from './types';
 
 type MobileMenuProps = {
@@ -146,10 +147,18 @@ export function MobileMenu({ nav, contact, cta }: MobileMenuProps) {
               </nav>
 
               <div className={styles.foot} style={{ '--i': nav.length } as CSSProperties}>
-                <p className={styles.status}>
-                  <Icon name="clock" size={14} />
-                  {contact.hours}
-                </p>
+                {contact.openingHours ? (
+                  <OpenStatus
+                    hours={contact.openingHours}
+                    hoursLabel={contact.hours}
+                    className={styles.status}
+                  />
+                ) : (
+                  <p className={styles.status}>
+                    <Icon name="clock" size={14} />
+                    {contact.hours}
+                  </p>
+                )}
                 <div className={styles.actions}>
                   <Button
                     variant="outline"

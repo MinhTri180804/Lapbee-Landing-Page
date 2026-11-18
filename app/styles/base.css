@@ -28,7 +28,9 @@ h4 {
   letter-spacing: var(--ls-display);
   line-height: var(--lh-snug);
   margin: 0;
-  text-wrap: balance;
+  /* `pretty` thay cho `balance` của design system: balance rút ngắn mọi dòng cho đều nhau nên tiêu đề
+     lớn chừa khoảng trống lớn bên phải; pretty lấp đầy dòng và vẫn tránh một từ lẻ ở dòng cuối. */
+  text-wrap: pretty;
 }
 p {
   margin: 0;

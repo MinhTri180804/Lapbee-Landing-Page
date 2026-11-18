@@ -56,7 +56,12 @@ export const routes = {
   posts: (page = 1) => (page <= 1 ? '/bai-dang' : `/bai-dang/trang/${page}`),
   category: (slug: string, page = 1) =>
     page <= 1 ? `/bai-dang/danh-muc/${seg(slug)}` : `/bai-dang/danh-muc/${seg(slug)}/trang/${page}`,
-  search: (query?: string) =>
-    query ? `/bai-dang/tim-kiem?q=${encodeURIComponent(query)}` : '/bai-dang/tim-kiem',
+  search: (query?: string, page = 1) => {
+    const params = new URLSearchParams();
+    if (query) params.set('q', query);
+    if (query && page > 1) params.set('page', String(page));
+    const qs = params.toString();
+    return qs ? `/bai-dang/tim-kiem?${qs}` : '/bai-dang/tim-kiem';
+  },
   post: (slug: string) => `/bai-dang/${seg(slug)}`,
 } as const;

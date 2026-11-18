@@ -1,0 +1,27 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--ink-950);
+  padding-top: 20px;
+}
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.search {
+  width: 100%;
+  max-width: 300px;
+}
+
+@media (max-width: 560px) {
+  .search {
+    max-width: none;
+  }
+}

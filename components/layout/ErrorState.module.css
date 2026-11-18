@@ -1,0 +1,40 @@
+.wrap {
+  padding-top: clamp(56px, 9vw, 120px);
+  padding-bottom: clamp(56px, 9vw, 120px);
+}
+.code {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(64px, 12vw, 160px);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--fg-1);
+  text-decoration: underline;
+  text-decoration-color: var(--brand);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
+}
+.title {
+  font-size: var(--type-h1);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  margin-top: 32px;
+  max-width: 900px;
+}
+.lead {
+  font-size: var(--type-lead);
+  color: var(--fg-2);
+  margin-top: 20px;
+  max-width: 600px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+@media (max-width: 560px) {
+  .actions > * {
+    width: 100%;
+  }
+}

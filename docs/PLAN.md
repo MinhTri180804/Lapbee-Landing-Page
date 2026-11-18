@@ -1,6 +1,6 @@
 # PLAN — Website LAPBEE (Landing + Blog) · Next.js 16 · Vietnix shared hosting
 
-> Trạng thái: **ĐÃ DUYỆT (18.11.2026)** · câu hỏi mở đã được trả lời (mục 6) · GĐ3 xong, chờ duyệt.
+> Trạng thái: **ĐÃ DUYỆT (18.11.2026)** · câu hỏi mở đã được trả lời (mục 6) · GĐ3 xong & duyệt · GĐ5 xong & duyệt · GĐ6 xong & duyệt · GĐ7 xong, chờ duyệt (GĐ4 dời xuống sau GĐ8).
 
 ---
 
@@ -214,6 +214,7 @@ export async function getPageContent<S extends PageSlug>(slug: S): Promise<PageC
 
 - `GET /posts?page=&limit=&category=&q=` → `{ items: PostSummary[], page, totalPages }`; `category` = slug danh mục, `q` = từ khoá tìm kiếm.
 - `PostSummary` thêm: `category: { slug, name }`, `featured: boolean`, `readingMinutes?: number` (thiếu thì frontend tự tính từ `content` ở trang chi tiết).
+- `GET /posts` có thể trả thêm `total` (tuỳ chọn, tổng số bài khớp bộ lọc) — GĐ6.
 - `GET /categories` → `{ items: { slug, name, count }[] }` (tag `categories`).
 - Booking (Q4, làm sau): `POST /bookings` body `{ customerType: 'personal'|'business', name, phone, device, description, needVatInvoice }` → `201 { code }` (vd. `LB-0428`).
 
@@ -290,6 +291,8 @@ Giữ thứ tự gợi ý của bạn, chỉ điều chỉnh nhỏ: GĐ4 (deploy
 - **Rủi ro:** typing generic theo slug phức tạp → giữ map `PageSchemas` cố định, không generic sâu; merge partial bằng zod 4 → kiểm chứng API `.partial()` lồng.
 
 ### GĐ4 — Deploy thử sớm lên Vietnix
+> **Thay đổi đã duyệt (18.11.2026):** tạm chưa deploy thử. Giai đoạn này làm **sau GĐ8, trước GĐ9**. Thứ tự thực hiện: GĐ5 → GĐ6 → GĐ7 → GĐ8 → GĐ4 → GĐ9 → GĐ10. Rủi ro: các vấn đề hosting (Passenger, sharp, cache nhiều instance) phát hiện muộn hơn; đều có cách xử lý bằng cấu hình (app.js, `IMAGE_UNOPTIMIZED`, giới hạn instance).
+
 - **Mục tiêu:** xác nhận hosting chạy được trước khi làm nhiều giao diện.
 - **Việc:** 1 trang tĩnh + 1 trang có URL tiếng Việt (kiểm tra rewrite/redirect qua LiteSpeed/Passenger) + route thử `/isr-probe` fetch mock API (revalidate 60s, tag `probe`) hiển thị thời điểm render; bản đầu `scripts/package.sh`; build trên **Linux x64** (Docker `node:<ver>` hoặc GitHub Actions) để `sharp`/binary đúng nền tảng; mock server chạy làm app Node thứ 2 trên cPanel (subdomain); dùng SSH (Q6) để xem log Passenger, đo RAM (`ps`/`top`), kiểm tra glibc (`ldd --version`) và thư mục cache; `docs/DEPLOY.md` bản đầu; đo RAM mỗi instance (cPanel "Resource Usage"), kiểm tra `next/image` có tối ưu được không, kiểm tra 2 instance thấy cùng cache sau `revalidateTag`.
 - **Hoàn thành khi:** trang tĩnh 200 qua domain; `/isr-probe` đổi timestamp sau revalidate; ảnh `/_next/image` trả 200 (hoặc đã quyết định `IMAGE_UNOPTIMIZED=true` và ghi lại); RAM/instance ghi vào DEPLOY.md; có quyết định `server.js` trực tiếp hay `app.js` wrapper (kèm lý do). Route thử bị xoá ở GĐ9.
@@ -361,16 +364,29 @@ Giữ thứ tự gợi ý của bạn, chỉ điều chỉnh nhỏ: GĐ4 (deploy
   - lint ✓ · typecheck ✓ · format ✓ · build ✓ (`/_styleguide` trả 404 ở production)
   - Đã xem `/_styleguide` ở 375/768/1280, sáng + tối: không tràn ngang, menu mobile mở/đóng (Esc, trả focus, khoá cuộn), đổi theme lưu được
   - Thêm `lucide-react`; chưa port Dialog/Toast/Tooltip/Switch/Tabs (port khi trang cần); preload 10 file font — đo lại ở GĐ10
-- [x] GĐ3 — Content layer + mock + `docs/CONTENT_LAYER.md` · xong 18.11.2026, **chờ duyệt** ("OK giai đoạn 3")
+- [x] GĐ3 — Content layer + mock + `docs/CONTENT_LAYER.md` · xong & duyệt 18.11.2026
   - lint ✓ · typecheck ✓ · format ✓ · test 31/31 ✓ · build ✓ (prebuild validate nội dung tĩnh)
   - Đã thử: sửa sai nội dung → build dừng, báo `sections.hero.ctas.0.href`, `sections.stats.items`; mock 500/timeout/bad-schema/down → throw đúng loại lỗi
   - Thêm `vitest`; đổi tên biến timeout thành `BACKEND_TIMEOUT_MS` (máy dev có sẵn `API_TIMEOUT_MS`); chạy lệnh bằng Node 24
   - Chưa trang nào dùng content layer (GĐ5) → kiểm chứng "SSG ↔ ISR theo cấu hình" trên bảng route ở GĐ5/GĐ10
-- [ ] GĐ4 — Deploy thử Vietnix + `docs/DEPLOY.md` bản đầu
-- [ ] GĐ5 — Landing pages
-- [ ] GĐ6 — Blog
-- [ ] GĐ7 — SEO
+- [x] GĐ5 — Landing pages · xong & duyệt 18.11.2026
+  - Sửa sau duyệt: `.lb-container` chỉ đặt padding/margin ngang (shorthand cũ xoá padding dọc của footer); `globals.css` import trước component trong layout
+  - lint ✓ · typecheck ✓ · format ✓ · test 31/31 ✓ · build ✓ (`npm run build:mock`): `/` ISR 1h; `/team`, `/journey`, `/booking` ○ Static
+  - Đã xem trên trình duyệt: 4 trang ở 1280, 375 (không tràn ngang ở 375/768/1024), sáng/tối; 1 h1 mỗi trang; HTML không JS đủ nội dung; route tiếng Anh → 308 sang URL tiếng Việt
+  - Form đặt lịch: lỗi theo field, dữ liệu hợp lệ → thông báo gọi hotline (chưa nối API), gửi được khi tắt JS
+  - Ngoài plan: thêm `lib/api/posts.ts` + mock `/posts` (tối thiểu cho "Bài đăng mới"), script `dev:mock`/`build:mock`; chưa port Dialog (chờ API đặt lịch)
+- [x] GĐ6 — Blog · xong & duyệt 18.11.2026
+  - Sửa sau duyệt: heading dùng `text-wrap: pretty` thay `balance` (tiêu đề lớn chừa khoảng trống bên phải)
+  - lint ✓ · typecheck ✓ · format ✓ · test 46/46 ✓ · build ✓ (`npm run build:mock`, build sạch): 18 bài ● ISR 1h, 4 danh mục ●, `/posts/page/2–3` ●, `/posts/search` ƒ
+  - Bản standalone: 404 đúng cho bài nháp/không tồn tại/danh mục lạ/trang vượt quá; tắt mock → trang đã cache vẫn 200 (`x-nextjs-cache: HIT`), trang chưa cache và tìm kiếm → 500 (không render rỗng)
+  - Trình duyệt: danh sách, danh mục, tìm kiếm qua form (cả không dấu), chi tiết (HTML, markdown, bài HTML độc hại đã được làm sạch), sao chép liên kết; 1280 và 375 không tràn ngang
+  - Thêm `sanitize-html`, `marked`; ngoài plan: trường tuỳ chọn `total` của `GET /posts`
+- [x] GĐ7 — SEO · xong 18.11.2026, **chờ duyệt** ("OK giai đoạn 7")
+  - lint ✓ · typecheck ✓ · format ✓ · test 51/51 ✓ · build ✓ (`npm run build:mock`, build sạch): `/sitemap.xml` ISR 1h, `/robots.txt`, icon tĩnh
+  - Bản standalone (`SITE_URL=https://lapbee.example`): 10 trang có title/description/canonical (URL tiếng Việt)/OG/Twitter đúng, 1 h1, heading không nhảy cấp; JSON-LD Organization+WebSite (trang chủ), Article+BreadcrumbList (bài); sitemap 27 URL; robots đúng; URL lạ → 404 + trang 404; backend lỗi → 500 + trang lỗi, "Thử lại" hoạt động
+  - Ảnh OG mặc định + icon sinh bằng script (`npm run og-image`, `npm run icons`); chưa chạy Rich Results Test (cần URL công khai)
 - [ ] GĐ8 — Revalidate endpoint + `docs/WEBHOOK.md`
+- [ ] GĐ4 — Deploy thử Vietnix + `docs/DEPLOY.md` bản đầu _(dời xuống sau GĐ8 — 18.11.2026)_
 - [ ] GĐ9 — Hoàn thiện deploy
 - [ ] GĐ10 — Kiểm tra tổng thể
 
@@ -378,4 +394,4 @@ Giữ thứ tự gợi ý của bạn, chỉ điều chỉnh nhỏ: GĐ4 (deploy
 Làm đúng 1 giai đoạn → `npm run lint` · `npm run typecheck` · `npm run build` → báo kết quả + danh sách file + đối chiếu tiêu chí → tick bảng tiến độ → **dừng chờ "OK giai đoạn N"**. Phát hiện cần đổi plan → dừng, đề xuất, chờ duyệt.
 
 ## 9. Bước tiếp theo
-Chờ "OK giai đoạn 3" rồi mới bắt đầu **GĐ4** (deploy thử lên Vietnix — cần bạn thao tác cPanel/SSH).
+Chờ "OK giai đoạn 7" rồi mới bắt đầu **GĐ8 — Revalidate endpoint**.

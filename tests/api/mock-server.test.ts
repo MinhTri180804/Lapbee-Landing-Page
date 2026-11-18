@@ -11,6 +11,7 @@ import { apiSource } from '@/content/adapters/api';
 import { staticSource } from '@/content/adapters/static';
 import { resolvePageContent } from '@/content/resolve';
 import { ApiHttpError, ApiNetworkError, ApiNotFoundError, ApiTimeoutError } from '@/lib/api/errors';
+import { getCategories, getPost, getPostSlugs, getPosts } from '@/lib/api/posts';
 
 const SERVER = fileURLToPath(new URL('../../mocks/server.mjs', import.meta.url));
 let child: ChildProcess;
@@ -95,5 +96,49 @@ describe('apiSource + mock server', () => {
     vi.stubEnv('API_BASE_URL', baseUrl);
     await setFail('down');
     await expect(homeWithHeroFromApi()).rejects.toBeInstanceOf(ApiNetworkError);
+  });
+});
+
+describe('blog API (lib/api/posts) + mock server', () => {
+  it('getPosts: phân trang, lọc danh mục, tìm kiếm không dấu; bỏ bài draft', async () => {
+    vi.stubEnv('API_BASE_URL', baseUrl);
+    const first = await getPosts(1, 6);
+    expect(first.items).toHaveLength(6);
+    expect(first.total).toBe(18);
+    expect(first.totalPages).toBe(3);
+    expect(first.items.some((p) => p.slug === 'ban-nhap-chua-dang')).toBe(false);
+    expect(first.items[0]!.cover.url).toMatch(/^http:\/\/127\.0\.0\.1:\d+\/images\//);
+
+    const tips = await getPosts(1, 6, 'meo-hay');
+    expect(tips.items.every((p) => p.category?.slug === 'meo-hay')).toBe(true);
+
+    const search = await getPosts(1, 6, undefined, 'pin laptop');
+    expect(search.items.map((p) => p.slug)).toContain('5-dau-hieu-pin-laptop-can-duoc-thay');
+    const noAccent = await getPosts(1, 6, undefined, 've sinh');
+    expect(noAccent.total).toBeGreaterThan(0);
+  });
+
+  it('getPost: bài markdown và bài draft (status draft — trang tự 404)', async () => {
+    vi.stubEnv('API_BASE_URL', baseUrl);
+    const md = await getPost('chuan-bi-gi-truoc-khi-mang-may-di-sua');
+    expect(md.contentFormat).toBe('markdown');
+    expect((await getPost('ban-nhap-chua-dang')).status).toBe('draft');
+    await expect(getPost('khong-ton-tai')).rejects.toBeInstanceOf(ApiNotFoundError);
+  });
+
+  it('getPostSlugs chỉ có bài published; getCategories đếm đúng', async () => {
+    vi.stubEnv('API_BASE_URL', baseUrl);
+    const slugs = await getPostSlugs();
+    expect(slugs).toHaveLength(18);
+    const cats = await getCategories();
+    expect(cats.map((c) => c.slug)).toEqual(['huong-dan', 'meo-hay', 'tin-tuc', 'khuyen-mai']);
+    expect(cats.reduce((n, c) => n + c.count, 0)).toBe(18);
+  });
+
+  it('mock trả sai schema → getPost throw', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    vi.stubEnv('API_BASE_URL', baseUrl);
+    await setFail('bad-schema');
+    await expect(getPost('5-dau-hieu-pin-laptop-can-duoc-thay')).rejects.toThrow(/sai schema/);
   });
 });

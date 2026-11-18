@@ -1,0 +1,11 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.title {
+  font-size: var(--type-h2);
+  max-width: 620px;
+}

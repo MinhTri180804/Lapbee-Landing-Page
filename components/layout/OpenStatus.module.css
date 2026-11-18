@@ -1,0 +1,27 @@
+.status {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 99px;
+  background: var(--brand);
+}
+.live {
+  background: var(--success);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--success) 50%, transparent);
+  animation: lb-pulse 2s infinite;
+}
+@media (max-width: 560px) {
+  .status {
+    font-size: 11px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .dot {
+    margin-top: 5px;
+  }
+}

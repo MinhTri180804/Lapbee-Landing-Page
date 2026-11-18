@@ -100,3 +100,13 @@
     display: none;
   }
 }
+
+/* Ẩn khi cuộn xuống, hiện khi cuộn lên (ScrollEffects bật class trên <html>). */
+:global(html.lb-hdr-hidden) .header {
+  transform: translateY(-100%);
+}
+:global(html.lb-scrolled) .header {
+  box-shadow:
+    0 1px 0 var(--border-1),
+    0 8px 24px -16px rgba(18, 18, 16, 0.18);
+}

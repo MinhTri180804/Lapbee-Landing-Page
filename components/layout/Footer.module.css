@@ -99,3 +99,8 @@ span.contact {
     grid-template-columns: 1fr;
   }
 }
+
+/* Trang kết thúc bằng một band tối → footer nối liền, không chừa khoảng trắng. */
+:global(main:has(> [data-band]:last-child)) + .footer {
+  margin-top: 0;
+}

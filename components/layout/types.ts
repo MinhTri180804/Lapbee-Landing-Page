@@ -15,6 +15,8 @@ export type ContactInfo = {
   mapUrl: string;
   /** vd. "08:00 – 20:00, Thứ 2 – Chủ nhật". */
   hours: string;
+  /** Giờ mở cửa có cấu trúc → trạng thái "Đang nhận máy" trong menu mobile. */
+  openingHours?: { days: readonly string[]; opens: string; closes: string };
 };
 
 export type CtaLink = {

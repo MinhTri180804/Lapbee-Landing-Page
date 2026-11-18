@@ -8,10 +8,17 @@ import { getRedirects, getRewrites } from './lib/routes';
  */
 const imageUnoptimized = process.env.IMAGE_UNOPTIMIZED === 'true';
 const logFetches = process.env.LOG_FETCHES === 'true';
+/** Chế độ mock (chỉ dev/test): cho phép ảnh từ mock server trên localhost. */
+const useMockApi = process.env.USE_MOCK_API === 'true';
+const MOCK_ORIGINS = ['http://localhost:4010', 'http://127.0.0.1:4010'];
 
 /** Host ảnh từ backend: host của API_BASE_URL + danh sách IMAGE_HOSTS (phân tách bằng dấu phẩy). */
 function imageRemotePatterns(): URL[] {
-  const origins = [process.env.API_BASE_URL, ...(process.env.IMAGE_HOSTS ?? '').split(',')]
+  const origins = [
+    process.env.API_BASE_URL,
+    ...(process.env.IMAGE_HOSTS ?? '').split(','),
+    ...(useMockApi ? MOCK_ORIGINS : []),
+  ]
     .map((v) => v?.trim())
     .filter((v): v is string => Boolean(v));
   const unique = new Set<string>();
@@ -40,6 +47,8 @@ const nextConfig: NextConfig = {
     unoptimized: imageUnoptimized,
     formats: ['image/avif', 'image/webp'],
     remotePatterns: imageRemotePatterns(),
+    // Bộ tối ưu ảnh mặc định chặn IP nội bộ (chống SSRF). Chỉ mở khi chạy với mock trên localhost.
+    ...(useMockApi ? { dangerouslyAllowLocalIP: true } : {}),
   },
   ...(logFetches ? { logging: { fetches: { fullUrl: true } } } : {}),
   rewrites: async () => getRewrites(),

@@ -1,0 +1,496 @@
+{
+  "items": [
+    {
+      "slug": "5-dau-hieu-pin-laptop-can-duoc-thay",
+      "title": "5 dấu hiệu pin laptop cần được thay",
+      "excerpt": "Máy sập nguồn khi còn 20%, pin phồng hay sạc không vào — đây là lúc nên kiểm tra.",
+      "category": {
+        "slug": "huong-dan",
+        "name": "Hướng dẫn"
+      },
+      "featured": true,
+      "readingMinutes": 4,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: 5 dấu hiệu pin laptop cần được thay"
+      },
+      "contentFormat": "html",
+      "content": "<p>Máy sập nguồn khi còn 20%, pin phồng hay sạc không vào — đây là lúc nên kiểm tra.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "5 dấu hiệu pin laptop cần được thay",
+        "description": "Máy sập nguồn khi còn 20%, pin phồng hay sạc không vào — đây là lúc nên kiểm tra."
+      },
+      "publishedAt": "2026-11-12T08:00:00.000+07:00",
+      "updatedAt": "2026-11-12T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "ve-sinh-laptop-bao-lau-mot-lan-la-du",
+      "title": "Vệ sinh laptop bao lâu một lần là đủ?",
+      "excerpt": "Chu kỳ hợp lý tuỳ môi trường sử dụng. Kỹ thuật viên của chúng tôi gợi ý cách tính.",
+      "category": {
+        "slug": "meo-hay",
+        "name": "Mẹo hay"
+      },
+      "featured": false,
+      "readingMinutes": 3,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Vệ sinh laptop bao lâu một lần là đủ?"
+      },
+      "contentFormat": "html",
+      "content": "<p>Chu kỳ hợp lý tuỳ môi trường sử dụng. Kỹ thuật viên của chúng tôi gợi ý cách tính.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Vệ sinh laptop bao lâu một lần là đủ?",
+        "description": "Chu kỳ hợp lý tuỳ môi trường sử dụng. Kỹ thuật viên của chúng tôi gợi ý cách tính."
+      },
+      "publishedAt": "2026-11-05T08:00:00.000+07:00",
+      "updatedAt": "2026-11-05T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "lapbee-mo-them-khung-gio-nhan-may-buoi-toi",
+      "title": "LAPBEE mở thêm khung giờ nhận máy buổi tối",
+      "excerpt": "Từ tháng 11, trung tâm nhận máy đến 20:00 tất cả các ngày trong tuần.",
+      "category": {
+        "slug": "tin-tuc",
+        "name": "Tin tức"
+      },
+      "featured": false,
+      "readingMinutes": 2,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: LAPBEE mở thêm khung giờ nhận máy buổi tối"
+      },
+      "contentFormat": "html",
+      "content": "<p>Từ tháng 11, trung tâm nhận máy đến 20:00 tất cả các ngày trong tuần.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "LAPBEE mở thêm khung giờ nhận máy buổi tối",
+        "description": "Từ tháng 11, trung tâm nhận máy đến 20:00 tất cả các ngày trong tuần."
+      },
+      "publishedAt": "2026-11-01T08:00:00.000+07:00",
+      "updatedAt": "2026-11-01T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "sao-luu-du-lieu-truoc-khi-mang-may-di-sua",
+      "title": "Sao lưu dữ liệu trước khi mang máy đi sửa",
+      "excerpt": "Ba cách sao lưu đơn giản để bạn yên tâm trong lúc chờ sửa chữa.",
+      "category": {
+        "slug": "huong-dan",
+        "name": "Hướng dẫn"
+      },
+      "featured": false,
+      "readingMinutes": 5,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Sao lưu dữ liệu trước khi mang máy đi sửa"
+      },
+      "contentFormat": "html",
+      "content": "<p>Ba cách sao lưu đơn giản để bạn yên tâm trong lúc chờ sửa chữa.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Sao lưu dữ liệu trước khi mang máy đi sửa",
+        "description": "Ba cách sao lưu đơn giản để bạn yên tâm trong lúc chờ sửa chữa."
+      },
+      "publishedAt": "2026-10-24T08:00:00.000+07:00",
+      "updatedAt": "2026-10-24T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "kiem-tra-suc-khoe-may-mien-phi-cho-doanh-nghiep",
+      "title": "Kiểm tra sức khoẻ máy miễn phí cho doanh nghiệp",
+      "excerpt": "Áp dụng cho văn phòng từ 10 máy trở lên trong tháng này.",
+      "category": {
+        "slug": "khuyen-mai",
+        "name": "Khuyến mãi"
+      },
+      "featured": false,
+      "readingMinutes": 2,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Kiểm tra sức khoẻ máy miễn phí cho doanh nghiệp"
+      },
+      "contentFormat": "html",
+      "content": "<p>Áp dụng cho văn phòng từ 10 máy trở lên trong tháng này.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Kiểm tra sức khoẻ máy miễn phí cho doanh nghiệp",
+        "description": "Áp dụng cho văn phòng từ 10 máy trở lên trong tháng này."
+      },
+      "publishedAt": "2026-10-18T08:00:00.000+07:00",
+      "updatedAt": "2026-10-18T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "ssd-hay-hdd-nang-cap-nao-dang-tien-nhat",
+      "title": "SSD hay HDD: nâng cấp nào đáng tiền nhất?",
+      "excerpt": "So sánh tốc độ, độ bền và chi phí cho máy dùng văn phòng và đồ hoạ.",
+      "category": {
+        "slug": "meo-hay",
+        "name": "Mẹo hay"
+      },
+      "featured": false,
+      "readingMinutes": 6,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: SSD hay HDD: nâng cấp nào đáng tiền nhất?"
+      },
+      "contentFormat": "html",
+      "content": "<p>So sánh tốc độ, độ bền và chi phí cho máy dùng văn phòng và đồ hoạ.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "SSD hay HDD: nâng cấp nào đáng tiền nhất?",
+        "description": "So sánh tốc độ, độ bền và chi phí cho máy dùng văn phòng và đồ hoạ."
+      },
+      "publishedAt": "2026-10-10T08:00:00.000+07:00",
+      "updatedAt": "2026-10-10T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "cach-keo-dai-tuoi-tho-ban-phim-laptop",
+      "title": "Cách kéo dài tuổi thọ bàn phím laptop",
+      "excerpt": "Thói quen nhỏ giúp phím không bị liệt hay kẹt sau vài năm.",
+      "category": {
+        "slug": "meo-hay",
+        "name": "Mẹo hay"
+      },
+      "featured": false,
+      "readingMinutes": 3,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Cách kéo dài tuổi thọ bàn phím laptop"
+      },
+      "contentFormat": "html",
+      "content": "<p>Thói quen nhỏ giúp phím không bị liệt hay kẹt sau vài năm.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Cách kéo dài tuổi thọ bàn phím laptop",
+        "description": "Thói quen nhỏ giúp phím không bị liệt hay kẹt sau vài năm."
+      },
+      "publishedAt": "2026-10-02T08:00:00.000+07:00",
+      "updatedAt": "2026-10-02T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "nhan-biet-man-hinh-bi-diem-chet",
+      "title": "Nhận biết màn hình bị điểm chết",
+      "excerpt": "Kiểm tra nhanh trong 2 phút trước khi mua hoặc nhận máy.",
+      "category": {
+        "slug": "huong-dan",
+        "name": "Hướng dẫn"
+      },
+      "featured": false,
+      "readingMinutes": 4,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Nhận biết màn hình bị điểm chết"
+      },
+      "contentFormat": "html",
+      "content": "<p>Kiểm tra nhanh trong 2 phút trước khi mua hoặc nhận máy.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Nhận biết màn hình bị điểm chết",
+        "description": "Kiểm tra nhanh trong 2 phút trước khi mua hoặc nhận máy."
+      },
+      "publishedAt": "2026-09-26T08:00:00.000+07:00",
+      "updatedAt": "2026-09-26T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "lapbee-ra-mat-tra-cuu-tien-do-bang-ma-phieu",
+      "title": "LAPBEE ra mắt tra cứu tiến độ bằng mã phiếu",
+      "excerpt": "Theo dõi tình trạng sửa chữa trực tuyến mọi lúc.",
+      "category": {
+        "slug": "tin-tuc",
+        "name": "Tin tức"
+      },
+      "featured": false,
+      "readingMinutes": 2,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: LAPBEE ra mắt tra cứu tiến độ bằng mã phiếu"
+      },
+      "contentFormat": "html",
+      "content": "<p>Theo dõi tình trạng sửa chữa trực tuyến mọi lúc.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "LAPBEE ra mắt tra cứu tiến độ bằng mã phiếu",
+        "description": "Theo dõi tình trạng sửa chữa trực tuyến mọi lúc."
+      },
+      "publishedAt": "2026-09-18T08:00:00.000+07:00",
+      "updatedAt": "2026-09-18T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "khi-nao-nen-thay-keo-tan-nhiet-cpu",
+      "title": "Khi nào nên thay keo tản nhiệt CPU?",
+      "excerpt": "Dấu hiệu máy nóng bất thường và chu kỳ bảo dưỡng hợp lý.",
+      "category": {
+        "slug": "huong-dan",
+        "name": "Hướng dẫn"
+      },
+      "featured": false,
+      "readingMinutes": 5,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Khi nào nên thay keo tản nhiệt CPU?"
+      },
+      "contentFormat": "html",
+      "content": "<p>Dấu hiệu máy nóng bất thường và chu kỳ bảo dưỡng hợp lý.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Khi nào nên thay keo tản nhiệt CPU?",
+        "description": "Dấu hiệu máy nóng bất thường và chu kỳ bảo dưỡng hợp lý."
+      },
+      "publishedAt": "2026-09-09T08:00:00.000+07:00",
+      "updatedAt": "2026-09-09T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "sac-laptop-qua-dem-co-hai-pin-khong",
+      "title": "Sạc laptop qua đêm có hại pin không?",
+      "excerpt": "Giải thích đơn giản về chu kỳ sạc và chế độ bảo vệ pin.",
+      "category": {
+        "slug": "meo-hay",
+        "name": "Mẹo hay"
+      },
+      "featured": false,
+      "readingMinutes": 4,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Sạc laptop qua đêm có hại pin không?"
+      },
+      "contentFormat": "html",
+      "content": "<p>Giải thích đơn giản về chu kỳ sạc và chế độ bảo vệ pin.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Sạc laptop qua đêm có hại pin không?",
+        "description": "Giải thích đơn giản về chu kỳ sạc và chế độ bảo vệ pin."
+      },
+      "publishedAt": "2026-08-30T08:00:00.000+07:00",
+      "updatedAt": "2026-08-30T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "giam-20-ve-sinh-may-cho-sinh-vien",
+      "title": "Giảm 20% vệ sinh máy cho sinh viên",
+      "excerpt": "Áp dụng khi xuất trình thẻ sinh viên đến hết tháng.",
+      "category": {
+        "slug": "khuyen-mai",
+        "name": "Khuyến mãi"
+      },
+      "featured": false,
+      "readingMinutes": 1,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Giảm 20% vệ sinh máy cho sinh viên"
+      },
+      "contentFormat": "html",
+      "content": "<p>Áp dụng khi xuất trình thẻ sinh viên đến hết tháng.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Giảm 20% vệ sinh máy cho sinh viên",
+        "description": "Áp dụng khi xuất trình thẻ sinh viên đến hết tháng."
+      },
+      "publishedAt": "2026-08-22T08:00:00.000+07:00",
+      "updatedAt": "2026-08-22T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "mo-rong-xuong-mainboard-tang-2",
+      "title": "Mở rộng xưởng mainboard tầng 2",
+      "excerpt": "Thêm 4 bàn kỹ thuật và thiết bị hàn mới.",
+      "category": {
+        "slug": "tin-tuc",
+        "name": "Tin tức"
+      },
+      "featured": false,
+      "readingMinutes": 3,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Mở rộng xưởng mainboard tầng 2"
+      },
+      "contentFormat": "html",
+      "content": "<p>Thêm 4 bàn kỹ thuật và thiết bị hàn mới.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Mở rộng xưởng mainboard tầng 2",
+        "description": "Thêm 4 bàn kỹ thuật và thiết bị hàn mới."
+      },
+      "publishedAt": "2026-08-12T08:00:00.000+07:00",
+      "updatedAt": "2026-08-12T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "laptop-vao-nuoc-5-viec-can-lam-ngay",
+      "title": "Laptop vào nước: 5 việc cần làm ngay",
+      "excerpt": "Những thao tác đúng giúp tăng khả năng cứu máy.",
+      "category": {
+        "slug": "huong-dan",
+        "name": "Hướng dẫn"
+      },
+      "featured": false,
+      "readingMinutes": 5,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Laptop vào nước: 5 việc cần làm ngay"
+      },
+      "contentFormat": "html",
+      "content": "<p>Những thao tác đúng giúp tăng khả năng cứu máy.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Laptop vào nước: 5 việc cần làm ngay",
+        "description": "Những thao tác đúng giúp tăng khả năng cứu máy."
+      },
+      "publishedAt": "2026-08-01T08:00:00.000+07:00",
+      "updatedAt": "2026-08-01T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "chon-ram-nang-cap-dung-chuan-cho-may",
+      "title": "Chọn RAM nâng cấp đúng chuẩn cho máy",
+      "excerpt": "Bus, dung lượng và khe cắm: những điều cần kiểm tra.",
+      "category": {
+        "slug": "meo-hay",
+        "name": "Mẹo hay"
+      },
+      "featured": false,
+      "readingMinutes": 6,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Chọn RAM nâng cấp đúng chuẩn cho máy"
+      },
+      "contentFormat": "html",
+      "content": "<p>Bus, dung lượng và khe cắm: những điều cần kiểm tra.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Chọn RAM nâng cấp đúng chuẩn cho máy",
+        "description": "Bus, dung lượng và khe cắm: những điều cần kiểm tra."
+      },
+      "publishedAt": "2026-07-20T08:00:00.000+07:00",
+      "updatedAt": "2026-07-20T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "hop-tac-bao-tri-cho-12-truong-hoc",
+      "title": "Hợp tác bảo trì cho 12 trường học",
+      "excerpt": "Chương trình kiểm tra định kỳ phòng máy học sinh.",
+      "category": {
+        "slug": "tin-tuc",
+        "name": "Tin tức"
+      },
+      "featured": false,
+      "readingMinutes": 3,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Hợp tác bảo trì cho 12 trường học"
+      },
+      "contentFormat": "html",
+      "content": "<p>Chương trình kiểm tra định kỳ phòng máy học sinh.</p><h2>Tiêu đề phụ trong bài</h2><p>Nội dung bài viết mẫu từ mock server. Mỗi bài viết nên kết thúc bằng một lời mời hành động rõ ràng: đặt lịch kiểm tra, gọi hotline hoặc đọc bài liên quan.</p>",
+      "seo": {
+        "title": "Hợp tác bảo trì cho 12 trường học",
+        "description": "Chương trình kiểm tra định kỳ phòng máy học sinh."
+      },
+      "publishedAt": "2026-07-08T08:00:00.000+07:00",
+      "updatedAt": "2026-07-08T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "chuan-bi-gi-truoc-khi-mang-may-di-sua",
+      "title": "Chuẩn bị gì trước khi mang máy đi sửa?",
+      "excerpt": "Ba bước sao lưu, ghi mật khẩu và tháo phụ kiện giúp quá trình sửa nhanh và an toàn hơn.",
+      "category": {
+        "slug": "huong-dan",
+        "name": "Hướng dẫn"
+      },
+      "featured": false,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Chuẩn bị gì trước khi mang máy đi sửa?"
+      },
+      "contentFormat": "markdown",
+      "content": "Bài mẫu viết bằng **markdown** (`contentFormat: \"markdown\"`) để kiểm tra đường chuyển markdown → HTML → sanitize.\n\n## Chuẩn bị trước khi đem máy đi sửa\n\n1. Sao lưu dữ liệu quan trọng ra ổ ngoài hoặc đám mây.\n2. Ghi lại mật khẩu đăng nhập hoặc tạo tài khoản tạm cho kỹ thuật viên.\n3. Tháo USB, thẻ nhớ và các phụ kiện không cần thiết.\n\n> Mẹo: chụp ảnh tình trạng máy (vết xước, màn hình) trước khi giao.\n\n## Kiểm tra nhanh tại nhà\n\n| Triệu chứng | Nên làm |\n| --- | --- |\n| Máy nóng, quạt kêu to | Vệ sinh, thay keo tản nhiệt |\n| Pin tụt nhanh | Kiểm tra độ chai pin |\n\nĐọc thêm [hướng dẫn đặt lịch](/dat-lich) hoặc gọi hotline. Tham khảo thêm tại [trang của hãng](https://support.example.com).\n\n```bash\npowercfg /batteryreport\n```\n\n<script>alert(\"markdown xss\")</script>",
+      "seo": {
+        "title": "Chuẩn bị gì trước khi mang máy đi sửa?",
+        "description": "Ba bước sao lưu, ghi mật khẩu và tháo phụ kiện trước khi mang laptop đi sửa."
+      },
+      "publishedAt": "2025-07-01T08:00:00.000+07:00",
+      "updatedAt": "2025-07-01T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "mau-kiem-tra-sanitize-html",
+      "title": "[MOCK] Bài mẫu kiểm tra sanitize HTML",
+      "excerpt": "Nội dung chứa script, onerror, javascript: — dùng để kiểm tra làm sạch HTML.",
+      "category": {
+        "slug": "tin-tuc",
+        "name": "Tin tức"
+      },
+      "featured": false,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Bài mẫu kiểm tra sanitize"
+      },
+      "contentFormat": "html",
+      "content": "<h1>Tiêu đề h1 trong nội dung (sẽ thành h2)</h1><p>Bài mẫu chứa HTML độc hại để kiểm tra sanitize. Nếu trang hiển thị bình thường và không có hộp thoại nào bật lên thì sanitize đang hoạt động.</p><script>alert(\"xss script\")</script><p onclick=\"alert(1)\" style=\"color:red\">Đoạn có onclick và style (bị bỏ thuộc tính).</p><p><img src=\"x\" onerror=\"alert('xss img')\"> ← ảnh có onerror (bị bỏ).</p><p><a href=\"javascript:alert(1)\">Link javascript:</a> · <a href=\"https://example.com\" target=\"_blank\">Link ngoài</a> · <a href=\"/dat-lich\">Link nội bộ</a></p><iframe src=\"https://example.com\"></iframe><form action=\"https://example.com\"><input name=\"password\"></form><h2>Danh sách</h2><ul><li>Mục một</li><li>Mục hai</li></ul>",
+      "seo": {
+        "title": "[MOCK] Bài mẫu kiểm tra sanitize HTML",
+        "description": "Bài mẫu của mock server.",
+        "noindex": true
+      },
+      "publishedAt": "2025-06-01T08:00:00.000+07:00",
+      "updatedAt": "2025-06-01T08:00:00.000+07:00",
+      "status": "published"
+    },
+    {
+      "slug": "ban-nhap-chua-dang",
+      "title": "Bản nháp chưa đăng",
+      "excerpt": "Bài ở trạng thái draft — không được hiển thị (404).",
+      "category": {
+        "slug": "tin-tuc",
+        "name": "Tin tức"
+      },
+      "featured": false,
+      "cover": {
+        "url": "/images/cover-placeholder.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "Ảnh minh hoạ: Bản nháp"
+      },
+      "contentFormat": "html",
+      "content": "<p>Nháp.</p>",
+      "seo": {
+        "title": "Bản nháp",
+        "description": "Nháp"
+      },
+      "publishedAt": "2026-11-17T08:00:00.000+07:00",
+      "updatedAt": "2026-11-17T08:00:00.000+07:00",
+      "status": "draft"
+    }
+  ]
+}

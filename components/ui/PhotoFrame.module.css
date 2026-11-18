@@ -1,0 +1,40 @@
+.frame {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--ink-100);
+}
+.square {
+  border-radius: 0;
+}
+.img {
+  object-fit: cover;
+}
+.empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  text-align: center;
+  background: repeating-linear-gradient(135deg, var(--ink-100) 0 10px, var(--ink-50) 10px 20px);
+}
+.caption {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  max-width: calc(100% - 20px);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(18, 18, 16, 0.72);
+  color: #f6f5f0;
+  padding: 3px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

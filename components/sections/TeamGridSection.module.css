@@ -1,0 +1,24 @@
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.member {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nameRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.name {
+  font-size: 19px;
+}
+.role {
+  color: var(--fg-2);
+  font-size: 14px;
+  margin-top: -6px;
+}

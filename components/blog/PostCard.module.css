@@ -1,0 +1,43 @@
+.card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cover {
+  position: relative;
+  width: 100%;
+  background: var(--ink-100);
+}
+.img {
+  object-fit: cover;
+}
+.body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.title {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.titleLarge {
+  font-size: var(--type-h2);
+  line-height: 1.2;
+}
+.excerpt {
+  color: var(--fg-2);
+  font-size: 15px;
+}
+.reading {
+  margin-top: auto;
+  padding-top: 6px;
+}

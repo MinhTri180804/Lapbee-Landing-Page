@@ -1,0 +1,168 @@
+.article {
+  padding-top: 48px;
+}
+.meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.category {
+  text-decoration: none;
+  border-radius: var(--radius-pill, 999px);
+}
+.title {
+  font-size: var(--type-h1);
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  margin-top: 20px;
+  overflow-wrap: anywhere;
+}
+.excerpt {
+  font-size: var(--type-lead);
+  color: var(--fg-2);
+  margin-top: 20px;
+}
+.byline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--border-1);
+  border-bottom: 1px solid var(--border-1);
+  padding: 14px 0;
+  margin-top: 32px;
+  font-size: 14px;
+}
+.cover {
+  margin-top: 32px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--ink-100);
+}
+.cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Nội dung bài (HTML đã sanitize) — chỉ style theo thẻ vì không có class. */
+.prose {
+  margin-top: 32px;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+.prose > :first-child {
+  margin-top: 0;
+}
+.prose :where(p, ul, ol, dl, blockquote, pre, figure, table) {
+  margin-top: 18px;
+}
+.prose :where(h2) {
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-top: 40px;
+}
+.prose :where(h3) {
+  font-size: 21px;
+  line-height: 1.25;
+  margin-top: 32px;
+}
+.prose :where(h4) {
+  font-size: 18px;
+  margin-top: 28px;
+}
+.prose :where(ul, ol) {
+  padding-left: 1.4em;
+}
+.prose :where(li + li) {
+  margin-top: 6px;
+}
+.prose :where(a) {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--brand);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.prose :where(a:hover) {
+  text-decoration-color: currentColor;
+}
+.prose :where(blockquote) {
+  border-left: 3px solid var(--brand);
+  padding-left: 18px;
+  color: var(--fg-2);
+}
+.prose :where(code) {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--surface-sunken);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+.prose :where(pre) {
+  background: var(--surface-sunken);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+.prose :where(pre code) {
+  background: none;
+  padding: 0;
+  font-size: 14px;
+}
+.prose :where(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+.prose :where(figcaption) {
+  font-size: 14px;
+  color: var(--fg-2);
+  margin-top: 8px;
+}
+.prose :where(hr) {
+  border: 0;
+  border-top: 1px solid var(--border-1);
+  margin: 40px 0;
+}
+.prose :where(table) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.prose :where(th, td) {
+  border-bottom: 1px solid var(--border-1);
+  padding: 10px 14px 10px 0;
+  text-align: left;
+  vertical-align: top;
+}
+.prose :where(th) {
+  font-weight: 600;
+}
+
+.cta {
+  background: var(--surface-sunken);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ctaTitle {
+  font-size: 20px;
+}
+.ctaBody {
+  color: var(--fg-2);
+  font-size: 15px;
+  margin-top: 4px;
+}

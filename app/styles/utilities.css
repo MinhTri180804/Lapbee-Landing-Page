@@ -1,13 +1,13 @@
 /* Lớp tiện ích toàn cục, giữ tên như design system (prefix lb-). */
 .lb-container {
   max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 .lb-container-narrow {
   max-width: calc(var(--container-narrow) + 2 * var(--gutter));
-  margin: 0 auto;
-  padding: 0 var(--gutter);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 .lb-section {
   padding-top: var(--section-y);

@@ -13,39 +13,45 @@ Next.js 16 (App Router, TypeScript strict), output `standalone`, deploy trên sh
 
 ```bash
 npm install
-cp .env.example .env.local   # rồi điền giá trị
-npm run dev
+cp .env.example .env.local   # rồi điền giá trị (dev với mock: USE_MOCK_API=true)
+npm run dev:mock             # dev server + mock backend (cổng 4010)
 ```
 
 ## Scripts
 
-| Lệnh                              | Việc                                               |
-| --------------------------------- | -------------------------------------------------- |
-| `npm run dev`                     | Chạy dev server (xem component tại `/_styleguide`) |
-| `npm run build`                   | Build production (tạo `.next/standalone`)          |
-| `npm run start`                   | Chạy bản build bằng `next start`                   |
-| `npm run lint`                    | ESLint                                             |
-| `npm run typecheck`               | Sinh kiểu route + `tsc --noEmit`                   |
-| `npm run format` / `format:check` | Prettier                                           |
-| `npm test`                        | Toàn bộ test (vitest)                              |
-| `npm run test:content`            | Validate nội dung tĩnh (tự chạy trước build)       |
-| `npm run mock`                    | Mock backend ở cổng 4010                           |
+| Lệnh                              | Việc                                                         |
+| --------------------------------- | ------------------------------------------------------------ |
+| `npm run dev`                     | Chạy dev server (xem component tại `/_styleguide`)           |
+| `npm run build`                   | Build production (tạo `.next/standalone`)                    |
+| `npm run start`                   | Chạy bản build bằng `next start`                             |
+| `npm run lint`                    | ESLint                                                       |
+| `npm run typecheck`               | Sinh kiểu route + `tsc --noEmit`                             |
+| `npm run format` / `format:check` | Prettier                                                     |
+| `npm test`                        | Toàn bộ test (vitest)                                        |
+| `npm run test:content`            | Validate nội dung tĩnh (tự chạy trước build)                 |
+| `npm run mock`                    | Mock backend ở cổng 4010                                     |
+| `npm run dev:mock`                | Dev server kèm mock backend                                  |
+| `npm run build:mock`              | Build production kèm mock backend (khi chưa có backend thật) |
+| `npm run icons`                   | Sinh favicon/icon/apple-icon từ `public/brand/logo-mark.png` |
+| `npm run og-image`                | Chụp ảnh OG mặc định từ `/_styleguide/og` (cần dev server)   |
 
 ## Cấu trúc
 
-| Thư mục              | Vai trò                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------ |
-| `app/`               | Route (tên thư mục tiếng Anh; URL công khai tiếng Việt qua `lib/routes.ts`)          |
-| `lib/`               | `routes.ts` (map URL), `env.ts` (biến môi trường), `api/` (gọi backend, server-only) |
-| `content/`           | Content layer: schema, nội dung tĩnh, cấu hình nguồn — xem docs/CONTENT_LAYER.md     |
-| `mocks/`             | Mock backend cho dev/test                                                            |
-| `tests/`             | Test vitest                                                                          |
-| `components/ui/`     | Component nền port từ design system (Button, Card, Icon, form…)                      |
-| `components/layout/` | Header, MobileMenu, Footer, PageHero, SectionHead                                    |
-| `app/styles/`        | Tokens (CSS variables), base, utilities                                              |
-| `public/brand/`      | Logo                                                                                 |
-| `design-system/`     | Design system gốc LAPBEE — chỉ tham chiếu                                            |
-| `docs/`              | Plan, quyết định, giả định, hướng dẫn                                                |
+| Thư mục                | Vai trò                                                                                                                                        |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app/`                 | Route (tên thư mục tiếng Anh; URL công khai tiếng Việt qua `lib/routes.ts`)                                                                    |
+| `lib/`                 | `routes.ts` (map URL), `env.ts` (biến môi trường), `api/` (gọi backend, server-only), `html/` (sanitize, markdown), `seo/` (metadata, JSON-LD) |
+| `content/`             | Content layer: schema, nội dung tĩnh, cấu hình nguồn — xem docs/CONTENT_LAYER.md                                                               |
+| `mocks/`               | Mock backend cho dev/test (endpoint: đầu `mocks/server.mjs`)                                                                                   |
+| `tests/`               | Test vitest                                                                                                                                    |
+| `components/ui/`       | Component nền port từ design system (Button, Card, Icon, form…)                                                                                |
+| `components/layout/`   | Header, MobileMenu, Footer, PageHero, SectionHead, OpenStatus, ScrollEffects                                                                   |
+| `components/sections/` | Section của trang landing (chỉ nhận props)                                                                                                     |
+| `components/blog/`     | PostCard, PostList, PostsToolbar, PostArticle, CopyLinkButton                                                                                  |
+| `app/styles/`          | Tokens (CSS variables), base, utilities                                                                                                        |
+| `public/brand/`        | Logo                                                                                                                                           |
+| `design-system/`       | Design system gốc LAPBEE — chỉ tham chiếu                                                                                                      |
+| `docs/`                | Plan, quyết định, giả định, hướng dẫn                                                                                                          |
 
 ## Tài liệu
 

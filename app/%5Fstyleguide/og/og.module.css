@@ -1,0 +1,64 @@
+/* Phủ toàn bộ cửa sổ (che header/footer của layout) — cửa sổ chụp đúng 1200×630. */
+.canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 1200px;
+  height: 630px;
+  padding: 64px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Màu cố định (không theo theme sáng/tối): ink-950, bee-400. */
+  background: #121210;
+  color: #faf9f5;
+  overflow: hidden;
+}
+.canvas::after {
+  content: '';
+  position: absolute;
+  right: -120px;
+  bottom: -160px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 216, 87, 0.22), transparent 70%);
+  pointer-events: none;
+}
+.top {
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 118;
+  font-weight: 700;
+  font-size: 112px;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+.highlight {
+  background: #f5d857;
+  color: #121210;
+  padding: 0 0.08em;
+  border-radius: 6px;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  font-size: 26px;
+  color: rgba(250, 249, 245, 0.72);
+  border-top: 1px solid rgba(250, 249, 245, 0.18);
+  padding-top: 24px;
+}
+.since {
+  font-family: var(--font-mono);
+  font-size: 22px;
+}
+
+/* Ẩn nút dev tools của Next (chỉ có ở dev) để không lọt vào ảnh chụp. */
+:global(body):has(.canvas) :global(nextjs-portal) {
+  display: none !important;
+}
